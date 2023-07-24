@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Serenity Trading Tracker</title>
+  <style>
+    /* Import the font */
+    @font-face {
+      font-family: 'Papyrus';
+      src: url('fonts/papyrus.ttf') format('truetype');
+      /* Update the 'fonts/' with the correct path to the font file */
+    }
+
+    /* Apply the font to the body or specific elements */
+    body {
+      font-family: 'Papyrus', sans-serif;
+      /* Fallback to a system default sans-serif font if Papyrus is unavailable */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('images/space-2560x1440-14mava5pm7yuwi2h.jpg'); /* Replace the URL with the actual path to your image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: black; /* Set the default text color to black */
+      text-align: center; /* Center the text */
+    }
+    h1 {
+      color: white; /* Set the heading text color to white */
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    label {
+      margin: 8px 0;
+    }
+    input {
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 16px;
+    }
+    button {
+      padding: 12px 24px;
+      background-color: #FFBA4D;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Papyrus', sans-serif;
+      font-size: 24px;
+    }
+    button:hover {
+      background-color: #E8A441;
+    }
+  </style>
+</head>
+<body>
+  <h1>Serenity Trading Tracker</h1>
+  <form id="loginForm" action="/login" method="post">
+    <label for="userId">Torn City User ID:</label>
+    <input type="text" id="userId" name="tornCityUserId" required>
+
+    <label for="tornApiKey">Torn City API Key:</label>
+    <input type="text" id="tornApiKey" name="tornCityApiKey" required>
+
+    <label for="arsonApiKey">Arson Warehouse API Key:</label>
+    <input type="text" id="arsonApiKey" name="arsonWarehouseApiKey" required>
+
+    <button type="submit">Log In</button>
+</form>
+
+</body>
+</html>
