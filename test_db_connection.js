@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  host: 'sql8.freesqldatabase.com',
+  user: 'sql8634968',
+  password: 'mmy9i5aWBI',
+  database: 'sql8634968',
   charset: 'utf8'
 });
 
@@ -14,5 +14,11 @@ connection.connect((err) => {
     return;
   }
   console.log('Connected to the database!');
-  connection.end();
+  // You can perform your database operations here.
+  // For example, you can execute queries using the connection object.
 });
+
+// Don't close the connection immediately, as you'll lose the connection
+// before you get a chance to execute any queries. Keep the connection open
+// until you've performed the necessary database operations.
+// connection.end();
