@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Player Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .header {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .info-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+    }
+    .info {
+      width: 100%;
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .status-box,
+    .player-data-box,
+    .today-data-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+    .status-title,
+    .player-data-title,
+    .today-data-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .status-label,
+    .player-data-label,
+    .today-data-label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .status-info,
+    .player-data-info,
+    .today-data-info {
+      width: calc(100% - 110px);
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .status-info {
+      background-color: green;
+      color: white;
+    }
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .section-container {
+      display: inline-block;
+      width: calc(100% / 3 - 20px);
+      margin-right: 20px;
+      margin-bottom: 20px;
+      vertical-align: top;
+    }
+    .left-align-container {
+      text-align: left;
+    }
+    .middle-align-container {
+      text-align: center;
+    }
+    .right-align-container {
+      text-align: right;
+    }
+    .player-data-today-container {
+      display: inline-block;
+      width: calc(100% / 3 - 40px);
+      margin-right: 20px;
+      margin-bottom: 20px;
+      vertical-align: top;
+    }
+    .buffer {
+      margin-bottom: 20px;
+    }
+    /* CSS for the embedded nested website navigation menu */
+    .nested-menu {
+      display: flex;
+      justify-content: center; /* Center align the headers */
+      margin-bottom: 20px;
+      background-color: rgba(128, 128, 128, 0.3); /* Grey transparent background */
+      padding: 10px;
+    }
+    .nested-menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .nested-menu li {
+      margin-right: 20px;
+    }
+    .nested-menu a {
+      font-size: 16px;
+      text-decoration: none;
+      color: #333;
+      border: 2px solid transparent; /* Initially transparent border */
+      padding: 5px 10px;
+      display: block; /* To occupy the entire width */
+    }
+    .nested-menu a:hover {
+      color: #ffd700;
+    }
+    .nested-menu a[value="dashboard"] {
+      border: 2px solid red; /* Red border for the current page */
+    }
+  </style>
+</head>
+<body>
+  <div class="nested-menu">
+    <ul>
+      <li><a href="#dashboard" value="dashboard">Dashboard</a></li>
+      <li><a href="#market-values">Market Values</a></li>
+      <li><a href="#bazaar-sales">Bazaar Sales</a></li>
+      <li><a href="#point-sales">Point Sales</a></li>
+      <li><a href="#museum-trades">Museum Trades</a></li>
+      <li><a href="#trades-in">Trades In</a></li>
+      <li><a href="#trade-items-out">Trade Items Out</a></li>
+      <li><a href="#traded-out-money">Traded Out Money</a></li>
+      <li><a href="#market-buys">Market Buys</a></li>
+      <li><a href="#auction-buys">Auction Buys</a></li>
+      <li><a href="#auction-sales">Auction Sales</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="header">
+      Welcome <span id="playerName">{'{playerName}'}</span>
+    </div>
+    <div class="info-box">
+      <label class="label">Player ID:</label>
+      <input type="text" class="info" readonly id="playerId" value="{'{playerId}'}">
+      <label class="label">Full Access API Key:</label>
+      <input type="text" class="info" readonly id="fullApiKey" value="{'{fullApiKey}'}">
+      <label class="label">Arson Warehouse API Key:</label>
+      <input type="text" class="info" readonly id="awhKey" value="{'{awhKey}'}">
+    </div>
+  </div>
+  <div class="buffer"></div>
+  <div class="clearfix"></div>
+  <div class="left-align-container section-container">
+    <div class="status-box">
+      <div class="status-title">Status</div>
+      <label class="status-label">Player Info:</label>
+      <input type="text" class="status-info" readonly id="playerInfo" value="{'{playerInfo}'}">
+      <label class="status-label">Market Values:</label>
+      <input type="text" class="status-info" readonly id="marketValues" value="{'{marketValues}'}">
+      <label class="status-label">Arson Warehouse Pricing:</label>
+      <input type="text" class="status-info" readonly id="awhPricing" value="{'{awhPricing}'}">
+      <label class="status-label">Current Logs:</label>
+      <input type="text" class="status-info" readonly id="currentLogs" value="{'{currentLogs}'}">
+      <label class="status-label">Historic Logs:</label>
+      <input type="text" class="status-info" readonly id="historicLogs" value="{'{historicLogs}'}">
+    </div>
+  </div>
+  <div class="middle-align-container player-data-today-container">
+    <div class="player-data-box">
+      <div class="player-data-title">Player Data</div>
+      <label class="player-data-label">Player Name:</label>
+      <input type="text" class="player-data-info" readonly id="playerNameData" value="{'{playerName}'}">
+      <label class="player-data-label">Age:</label>
+      <input type="text" class="player-data-info" readonly id="playerAge" value="{'{playerAge}'}">
+      <label class="player-data-label">Liquid Cash:</label>
+      <input type="text" class="player-data-info" readonly id="liquidCash" value="{'{liquidCash}'}">
+      <label class="player-data-label">Cash in Stocks:</label>
+      <input type="text" class="player-data-info" readonly id="stockCash" value="{'{stockCash}'}">
+      <label class="player-data-label">Networth:</label>
+      <input type="text" class="player-data-info" readonly id="networth" value="{'{networth}'}">
+    </div>
+  </div>
+  <div class="right-align-container player-data-today-container">
+    <div class="today-data-box">
+      <div class="today-data-title">Today's Data</div>
+      <label class="today-data-label">Trades In:</label>
+      <input type="text" class="today-data-info" readonly id="todayTradesIn" value="{'{todayTradesIn}'}">
+      <label class="today-data-label">Unique Tradees:</label>
+      <input type="text" class="today-data-info" readonly id="todayUniqueTradees" value="{'{todayUniqueTradees}'}">
+      <label class="today-data-label">Bazaar Customers:</label>
+      <input type="text" class="today-data-info" readonly id="todayBazaarCustomers" value="{'{todayBazaarCustomers}'}">
+      <label class="today-data-label">Unique Customers:</label>
+      <input type="text" class="today-data-info" readonly id="todayUniqueBazaar" value="{'{todayUniqueBazaar}'}">
+      <label class="today-data-label">Trades Out:</label>
+      <input type="text" class="today-data-info" readonly id="todayTradeOut" value="{'{todayTradeOut}'}">
+    </div>
+  </div>
+</body>
+</html>

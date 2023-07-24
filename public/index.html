@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html>
+  <!-- ... (HTML code) -->
+
+<script>
+  // Check if user data exists in cookies
+  const userId = getCookie('tornCityUserId');
+  const tornApiKey = getCookie('tornCityApiKey');
+  const arsonApiKey = getCookie('arsonWarehouseApiKey');
+
+  // Fill the input fields with user data if available
+  if (userId && tornApiKey && arsonApiKey) {
+    document.getElementById('userId').value = userId;
+    document.getElementById('tornApiKey').value = tornApiKey;
+    document.getElementById('arsonApiKey').value = arsonApiKey;
+  }
+
+  // Function to get cookie by name
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+</script>
+
+<!-- ... (Rest of the HTML code) -->
+
 <head>
   <title>Serenity Trading Tracker</title>
   <style>
@@ -76,8 +101,13 @@
     <label for="arsonApiKey">Arson Warehouse API Key:</label>
     <input type="text" id="arsonApiKey" name="arsonWarehouseApiKey" required>
 
-    <button type="submit">Log In</button>
-</form>
+    <!-- ... (Existing HTML code) -->
 
+<button type="submit">Log In</button>
+
+<!-- ... (Rest of the HTML code) -->
+
+</form>
+<p style="color: white;">If this is your first time using, then please enter your information and press Log In - a User Account will then be created for you</p>
 </body>
 </html>
